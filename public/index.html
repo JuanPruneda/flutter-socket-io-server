@@ -25,8 +25,14 @@
         socket.emit('mensaje', { nombre:'Juan' } );
 
         //Escuchar eventos
-        socket.on('mensaje', function(payload){
+        socket.on('nuevo-mensaje', function(payload){
             console.log('Escuchando:', payload);
+        });
+
+        // Escuchar evento active bands
+        socket.on('active-bands', function( bands ){
+            console.clear();        //Limpiar la consola
+            console.table( bands ); //Colocar los datos en una tabla
         });
 
     </script>
